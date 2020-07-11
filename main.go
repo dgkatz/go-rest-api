@@ -1,25 +1,24 @@
 package main
 
 import (
-	"fmt"
+	"github.com/dgkatz/learn_go_api/services"
+	"github.com/gin-gonic/gin"
 	"log"
-	"net/http"
 )
 
-func helloWorld(w http.ResponseWriter, r *http.Request) {
-	_, err := fmt.Fprintf(w, "Welcome to the HomePage!")
-	if err != nil{
-		fmt.Println("Failed to write response")
-	} else {
-		fmt.Println("hello from helloWorld endpoint!")
-	}
-}
+var router *gin.Engine
 
-func registerHandlers() {
-	http.HandleFunc("/hello", helloWorld)
-	log.Fatal(http.ListenAndServe("0.0.0.0:8001", nil))
+func setup() {
+	initializeRoutes()
+	connectServices()
 }
 
 func main() {
-	registerHandlers()
+	router = gin.Default()
+	setup()
+	err := router.Run("0.0.0.0:8001")
+	if err != nil{
+		log.Fatal("Failed to start server")
+	}
+	defer services.DB.Close()
 }
