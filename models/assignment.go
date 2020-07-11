@@ -6,7 +6,8 @@ import (
 
 type Assignment struct {
 	ID uint `gorm:"primary_key;"`
-	User User
+	UserID uint
+	User User `gorm:"ForeignKey:UserID"`
 	Title string
 	Description string
 	Deadline time.Time
