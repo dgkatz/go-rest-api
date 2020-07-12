@@ -1,6 +1,7 @@
 package main
 
 import (
+	"github.com/dgkatz/go-rest-api/config"
 	"github.com/dgkatz/go-rest-api/controllers"
 	"github.com/dgkatz/go-rest-api/services"
 )
@@ -28,4 +29,8 @@ func initializeRoutes() {
 
 func connectServices() {
 	services.ConnectDB()
+}
+
+func loadConfig() {
+	config.LoadConfig()
 }

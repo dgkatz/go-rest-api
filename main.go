@@ -1,6 +1,8 @@
 package main
 
 import (
+	"fmt"
+	"github.com/dgkatz/go-rest-api/config"
 	"github.com/dgkatz/go-rest-api/services"
 	"github.com/gin-gonic/gin"
 	"log"
@@ -9,6 +11,7 @@ import (
 var router *gin.Engine
 
 func setup() {
+	loadConfig()
 	initializeRoutes()
 	connectServices()
 }
@@ -16,7 +19,10 @@ func setup() {
 func main() {
 	router = gin.Default()
 	setup()
-	err := router.Run("0.0.0.0:8001")
+	bind := fmt.Sprintf("%v:%v",
+		config.Config.SERVER.Host,
+		config.Config.SERVER.Port)
+	err := router.Run(bind)
 	if err != nil{
 		log.Fatal("Failed to start server")
 	}
