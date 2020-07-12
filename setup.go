@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/dgkatz/learn_go_api/controllers"
-	"github.com/dgkatz/learn_go_api/services"
+	"github.com/dgkatz/go-rest-api/controllers"
+	"github.com/dgkatz/go-rest-api/services"
 )
 
 

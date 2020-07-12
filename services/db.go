@@ -1,7 +1,7 @@
 package services
 
 import (
-	"github.com/dgkatz/learn_go_api/models"
+	"github.com/dgkatz/go-rest-api/models"
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/postgres"
 	"log"

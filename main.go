@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/dgkatz/learn_go_api/services"
+	"github.com/dgkatz/go-rest-api/services"
 	"github.com/gin-gonic/gin"
 	"log"
 )

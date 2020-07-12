@@ -1,8 +1,8 @@
 package controllers
 
 import (
-	"github.com/dgkatz/learn_go_api/models"
-	"github.com/dgkatz/learn_go_api/services"
+	"github.com/dgkatz/go-rest-api/models"
+	"github.com/dgkatz/go-rest-api/services"
 	"github.com/gin-gonic/gin"
 	"net/http"
 	"strconv"
